@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url('./nyc_skyview.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Courier New', Courier, monospace;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2b2828;
+    opacity: 0.9;
+    min-height: 50px;
+}
+button {
+    background-color: #03767A;
+    border: none;
+    color: white;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+nav h1 {
+    color: white;
+    margin-left: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.search-wrapper {
+    min-height: 35px;
+    border-radius: 20px;
+    background: white;
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-wrapper input {
+    min-height: 35px;
+    border-radius: 20px;
+    border: none;
+    min-width:250px;
+    flex-grow: 2;
+    text-indent: 10px;
+    color: #03767A;
+}
+.search-wrapper input::placeholder {
+    color: #03767A;
+}
+.search-wrapper input:focus {
+    outline: none;
+}
+.search-wrapper .button-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #03767A;
+}
+.search-wrapper button {
+
+    border-radius: 5px;
+    border: none;
+    padding: 6px 10px;
+}
+.content-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-evenly;
+    color: white;
+    background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgb(3, 118, 122, 0.5));
+    padding-left:200px;
+}
+.content-container h1 {
+    font-size: 75px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 30vw;
+}
+.content-container h4 {
+    width: 18vw;
+}
+.content-container button {
+    width: 8vw;
+    padding: 10px;
+    border-radius:5px;
+    font-weight: bold;
+}
