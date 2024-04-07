@@ -22,6 +22,9 @@ button {
     border: none;
     color: white;
 }
+button:hover {
+    opacity: 0.8;
+}
 nav ul {
     display: flex;
     list-style: none;
@@ -31,6 +34,9 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+}
+nav a:hover {
+    color: #03767A;
 }
 nav h1 {
     color: white;
@@ -94,4 +100,57 @@ nav h1 {
     padding: 10px;
     border-radius:5px;
     font-weight: bold;
+}
+.about nav h1{
+    flex-grow: 1
+}
+.about nav ul {
+    flex-grow: 2;
+}
+.about .content-container h4 {
+    width: 80vw;
+    padding: 30px 25px;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 100px 100px rgba(0,0,0,0.3);
+}
+.our_team-container {
+    padding-left: 100px;
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+.our_team-container ul {
+    display: flex;
+    gap:30px;
+}
+.our_team-container h2 {
+    width: 10vw;
+    line-height: 1.1;
+    font-size: 75px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.card-container {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 100px 100px rgba(0,0,0,0.3);
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.card-container img {
+    height: 50px;
+}
+.card-content {
+    height: 150px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+}
+.card-content button {
+    background-color: #233D76;
+    border: 1px solid white;
+}
+.about .content-container h1 {
+    font-size: 85px;
+    font-weight: 800;
 }
