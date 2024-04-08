@@ -1,39 +1,61 @@
 const searchButton = document.getElementById('search-button')
 const clearButton = document.getElementById('search-reset')
+const resultDiv = document.getElementById('results-container')
 let searchResults = [];
 
 function search() {
     const input = document.getElementById('search-input').value.toLowerCase();
-    const resultDiv = document.getElementById('results-container')
-    resultDiv.innerHTML = '';
+    
 
     fetch('travel_recommendation_api.json')
         .then(response => response.json())
         .then(data => {
-            console.log('travel data', data)
-            console.log('input data', input)
-
             if(input === 'country' || input === 'countries') {
-                const index1 = Math.floor(Math.random() * data.length);
-                let index2 = Math.floor(Math.random() * data.length);
+                const index1 = Math.floor(Math.random() * data.countries.length);
+                let index2 = Math.floor(Math.random() * data.countries.length);
                 
                 while (index2 === index1) {
-                    index2 = Math.floor(Math.random() * data.length);
+                    index2 = Math.floor(Math.random() * data.countries.length);
                 }
+
+                const country1 = data.countries[index1];
+                const country2 = data.countries[index2];
+
+                const city1 = country1.cities[Math.floor(Math.random() * country1.cities.length)]
+                const city2 = country2.cities[Math.floor(Math.random() * country2.cities.length)]
                 
-                searchResults = [data[index1], data[index2]]
+                searchResults = [city1, city2];
             }
-            if(input === 'beach' || input === 'beaches') {
+            else if(input === 'beach' || input === 'beaches') {
                 searchResults = data.beaches
             }
-            if(input === 'temple' || input === 'temples') {
+            else if(input === 'temple' || input === 'temples') {
                 searchResults = data.temples
             }
 
-            resultDiv.innerHTML = `<h2>${searchResults[0].name}</h2>`
-            resultDiv.innerHTML += `<p>${searchResults[0].description}</p>`
+            resultDiv.innerHTML = '';
 
+            searchResults.forEach(item => {
+                const cardHtml = `
+                    <div class='card'>
+                        <img src="${item.imageUrl}" alt="item.description" class="card-img">
+                        <div class='card-body'>
+                            <h2 class='card-title'>${item.name}</h2>
+                            <p class='card-text'>${item.description}</p>
+                            <a href='#' class='card-button'>Visit</a>
+                        </div>
+                    </div>
+                `
+                resultDiv.innerHTML += cardHtml;
+            })
 
         })
 }
 searchButton.addEventListener('click', search)
+
+function clearInput() {
+    document.getElementById('search-input').value = '';
+    resultDiv.innerHTML = '';
+}
+
+clearButton.addEventListener('click', clearInput)
